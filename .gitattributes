@@ -1,0 +1,4 @@
+# Tell GitHub to show Python as main language
+static/css/*.css linguist-detectable=false
+static/js/*.js linguist-detectable=false
+templates/*.html linguist-detectable=false
