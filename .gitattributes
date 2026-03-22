@@ -1,4 +1,9 @@
-# Tell GitHub to show Python as main language
-static/css/*.css linguist-detectable=false
-static/js/*.js linguist-detectable=false
-templates/*.html linguist-detectable=false
+# Exclude frontend files from language stats
+*.css linguist-detectable=false
+*.js linguist-detectable=false
+*.html linguist-detectable=false
+*.jfif linguist-detectable=false
+*.webp linguist-detectable=false
+*.jpg linguist-detectable=false
+*.png linguist-detectable=false
+*.json linguist-detectable=false
