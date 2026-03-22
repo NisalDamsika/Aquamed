@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Gallery </title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gallary_page_style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <script src="W:\fyp_folder\finalise UI\navigation bar/navbar.js"></script>
+
+    <main class="gallery-section">
+        <div class="container">
+            
+            <div class="gallery-header">
+                <h1>Endemic Fish <span class="highlight">Gallery</span></h1>
+                <p>Explore the unique freshwater fish varieties of Sri Lanka.</p>
+                
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search fish by name..." onkeyup="filterGallery()">
+                </div>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                </div>
+
+        </div>
+    </main>
+
+    <div id="fishModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-body">
+                <div class="modal-img-box">
+                    <img id="modalImg" src="" alt="Fish Detail">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle">Fish Name</h2>
+                    <h4 id="modalSciName" class="sci-name">Scientific Name</h4>
+                    <p id="modalDesc">Description goes here...</p>
+                    
+                    <div class="modal-tags">
+                        <span class="tag">Endemic</span>
+                        <span class="tag">Freshwater</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/gallary_page_script.js') }}"></script>
+    
+
+</body>
+</html>

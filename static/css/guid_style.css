@@ -1,0 +1,172 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  line-height: 1.6;
+  padding-top: 80px; 
+}
+
+/* NAVBAR CSS */
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 15px 5%; background-color: #0d0d0d;
+  position: fixed; width: 100%; top: 0; z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-img { width: 35px; height: 35px; object-fit: contain; }
+.logo span { font-size: 1.5rem; font-weight: 700; color: #fff; }
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links li a { color: #e0e0e0; text-decoration: none; font-size: 1rem; transition: 0.3s; }
+.nav-links li a:hover { color: #00bcd4; }
+.nav-links .login-link { border: 1px solid #00bcd4; padding: 8px 25px; border-radius: 50px; color: #00bcd4; }
+.nav-links .login-link:hover { background-color: #00bcd4; color: #000; }
+.menu-icon { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+    .menu-icon { display: block; }
+    .nav-links { position: absolute; top: 70px; right: -100%; background: #0d0d0d; flex-direction: column; width: 100%; padding: 20px; transition: 0.4s; border-top: 1px solid #333; }
+    .nav-links.active { right: 0; }
+}
+
+/*  GUIDE PAGE STYLES */
+.guide-section {
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.page-header h1 i {
+    color: #00bcd4; 
+}
+
+.page-header p {
+    color: #aaa;
+    font-size: 1.1rem;
+}
+
+/* Grid Layout */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* Guide Cards */
+.guide-card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.guide-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 188, 212, 0.1);
+    border-color: #00bcd4;
+}
+
+.icon-box {
+    font-size: 2rem;
+    color: #00bcd4;
+    margin-bottom: 20px;
+}
+
+.guide-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* Content Styles */
+.content-block {
+    margin-bottom: 20px;
+}
+
+.content-block h3 {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.content-block h3 i {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.content-block p {
+    color: #ccc;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.note {
+    background-color: rgba(0, 188, 212, 0.1);
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: #00bcd4 !important;
+    font-size: 0.9rem !important;
+}
+
+/* Lists */
+.brand-list, .check-list {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.brand-list li, .check-list li {
+    margin-bottom: 8px;
+    color: #bbb;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+.check-list li {
+    padding-left: 5px;
+}
+
+/* Special Highlight Cards (Mistakes & Starter Kit) */
+.highlight-card {
+    background: linear-gradient(145deg, #1f1f1f, #141414);
+    border-color: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-header h1 { font-size: 2.2rem; }
+    .grid-layout { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fish Care Guide  Aquamed</title>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/guid_style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main class="guide-section">
+    <div class="container">
+        
+        <div class="page-header">
+            <h1>Fish Care Guide <i class="fas fa-book-open"></i></h1>
+            <p>Essential tips to keep your aquarium healthy and thriving.</p>
+        </div>
+
+        <div class="grid-layout">
+            
+            <section class="guide-card">
+                <div class="icon-box"><i class="fas fa-home"></i></div>
+                <h2>1. Tank Setup</h2>
+                
+                <div class="content-block">
+                    <h3><i class="fas fa-expand-arrows-alt"></i> Size Matters</h3>
+                    <p>Choose a tank size based on the species. Larger tanks (20+ gallons) are more stable.</p>
+                    <p class="note"> Example: Goldfish need at least 20 gallons for one fish.</p>
+                </div>
+
+                <div class="content-block">
+                    <h3><i class="fas fa-sync-alt"></i> Cycling the Tank</h3>
+                    <p>Cycle the tank for 4–6 weeks to build beneficial bacteria before adding fish.</p>
+                </div>
+
+                <div class="content-block">
+                    <h3><i class="fas fa-filter"></i> Filtration</h3>
+                    <p>Use a quality filter rated for your tank size.</p>
+                    <ul class="brand-list">
+                        <li><strong>Fluval:</strong> Premium canister filters.</li>
+                        <li><strong>AquaClear:</strong> Versatile media options.</li>
+                        <li><strong>Tetra Whisper:</strong> Quiet, beginner-friendly.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="guide-card">
+                <div class="icon-box"><i class="fas fa-water"></i></div>
+                <h2>2. Water Quality</h2>
+                
+                <div class="content-block">
+                    <h3><i class="fas fa-tint"></i> Dechlorinate Water</h3>
+                    <p>Tap water contains toxic chlorine. Always use a conditioner.</p>
+                    <ul class="brand-list">
+                        <li>✅ <strong>Seachem Prime</strong> (Highly Recommended)</li>
+                        <li>✅ <strong>API Tap Water Conditioner</strong></li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3><i class="fas fa-vial"></i> Test Regularly</h3>
+                    <p>Use test kits to monitor pH, ammonia, and nitrates.</p>
+                    <p class="note">Recommended: API Master Test Kit.</p>
+                </div>
+            </section>
+
+            <section class="guide-card">
+                <div class="icon-box"><i class="fas fa-utensils"></i></div>
+                <h2>3. Feeding</h2>
+                <p>Feed only what fish can eat in 2–3 minutes. Don't overfeed!</p>
+                
+                <div class="content-block">
+                    <h3>Recommended Brands</h3>
+                    <ul class="brand-list">
+                        <li><strong>Hikari:</strong> High-quality, species-specific.</li>
+                        <li><strong>Tetra:</strong> Flakes and pellets.</li>
+                        <li><strong>New Life Spectrum:</strong> Color-enhancing.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="guide-card">
+                <div class="icon-box"><i class="fas fa-thermometer-half"></i></div>
+                <h2>4. Temp & Maintenance</h2>
+                
+                <div class="content-block">
+                    <h3><i class="fas fa-temperature-high"></i> Heater</h3>
+                    <p>Maintain stable temp (24–27°C for tropical fish). Brands: Eheim Jäger, Fluval E Series.</p>
+                </div>
+
+                <div class="content-block">
+                    <h3><i class="fas fa-broom"></i> Cleaning</h3>
+                    <ul>
+                        <li>Clean filter monthly (rinse in tank water).</li>
+                        <li>Remove algae with magnetic scrapers.</li>
+                        <li>Trim live plants regularly.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="guide-card highlight-card">
+                <div class="icon-box"><i class="fas fa-exclamation-triangle"></i></div>
+                <h2>Avoid Mistakes</h2>
+                <ul class="check-list">
+                    <li> Don't mix aggressive and peaceful species.</li>
+                    <li> Don’t add too many fish at once.</li>
+                    <li> Quarantine new fish for 2 weeks.</li>
+                </ul>
+            </section>
+
+            <section class="guide-card highlight-card">
+                <div class="icon-box"><i class="fas fa-box-open"></i></div>
+                <h2>Starter Kit (Beginners)</h2>
+                <ul class="check-list">
+                    <li>✅ 20-gallon tank</li>
+                    <li>✅ Sponge or Hang-on-back filter</li>
+                    <li>✅ Heater & Thermometer</li>
+                    <li>✅ Seachem Prime & API Test Kit</li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+  </main>
+
+
+    <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+</body>
+</html>

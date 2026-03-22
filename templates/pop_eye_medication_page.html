@@ -1,0 +1,187 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop Eye Treatment - Aquamed</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pop_eye_medication_style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="treatment-page">
+        <div class="container">
+            
+            <div class="page-header">
+                <h1>Pop Eye <span class="highlight">Treatment</span></h1>
+                <p>Comprehensive guide to identifying and curing Pop Eye.</p>
+            </div>
+            
+            <div class="accordion-container">
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>1. Identify Symptoms</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>One or both eyes protrude or bulge outward due to fluid buildup.</p>
+                        <ul class="detail-list">
+                            <li><i class="fas fa-eye"></i> Bulging, cloudy, or swollen eyes.</li>
+                            <li><i class="fas fa-check-circle"></i> Redness behind the eye (trauma).</li>
+                            <li><i class="fas fa-check-circle"></i> Hiding or erratic swimming.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>2. Quarantine & Isolate</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Move the fish to a hospital tank to treat safely and prevent spreading infection.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>3. Water Quality Check</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Pop Eye is often caused by poor water. Ensure 0 Ammonia/Nitrite and low Nitrate.</p>
+                        
+                        <div class="product-grid">
+                            <div class="product-card" onclick="openModal('ammonia-test')">
+                                <img src="/static/images/ammonia test kit.jpg" alt="Ammonia Kit">
+                                <h4>Ammonia Test Kit</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('nitrate-test')">
+                                <img src="/static/images/nitrite test kit.jpg" alt="Nitrate Kit">
+                                <h4>Nitrate Test Kit</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('thermometer')">
+                                <img src="/static/images/temp test.jpg" alt="Thermometer">
+                                <h4>Thermometer</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>4. Medication & Treatment</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Treat based on the cause (Bacterial or Internal).</p>
+                        <div class="sub-section">
+                            <h5>For Bacterial Infection:</h5>
+                            <p>Use Maracyn (Erythromycin) or Melafix.</p>
+                        </div>
+                        <div class="sub-section">
+                            <h5>For Swelling (Epsom Salt):</h5>
+                            <p>Add Epsom Salt (1 tsp per 5 gallons) to reduce fluid buildup.</p>
+                        </div>
+
+                        <div class="product-grid">
+                            <div class="product-card" onclick="openModal('maracyn')">
+                                <img src="/static/images/Erythromycin (Maracyn).webp" alt="Maracyn">
+                                <h4>Fritz Maracyn</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('kanamycin')">
+                                <img src="/static/images/Kanamycin or Maracyn-Two.jfif" alt="Maracyn-Two">
+                                <h4>Maracyn-Two</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('melafix')">
+                                <img src="/static/images/Melafix.jpg" alt="Melafix">
+                                <h4>API Melafix</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('epsom')">
+                                <img src="/static/images/Aqua-salt.webp" alt="Epsom Salt">
+                                <h4>Epsom Salt</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>5. Diet & Prevention</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Feed high-quality pellets with Vitamin C & E. Avoid rough decor that can cause eye injury.</p>
+                        <ul class="detail-list">
+                            <li><i class="fas fa-star"></i> Regular water changes (25-40%).</li>
+                            <li><i class="fas fa-star"></i> Pre-filter sponges to prevent injury.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="maracyn-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('maracyn')">&times;</span>
+            <h2>Fritz Maracyn</h2>
+            <p>Contains Erythromycin. Effective against gram-positive bacteria often causing Pop Eye.</p>
+        </div>
+    </div>
+
+    <div id="kanamycin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('kanamycin')">&times;</span>
+            <h2>Maracyn-Two</h2>
+            <p>Penetrates internal tissues well. Good for deep internal infections.</p>
+        </div>
+    </div>
+
+    <div id="melafix-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('melafix')">&times;</span>
+            <h2>API Melafix</h2>
+            <p>Natural antibacterial remedy. Good for mild cases or early stages.</p>
+        </div>
+    </div>
+    
+    <div id="epsom-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('epsom')">&times;</span>
+            <h2>Epsom Salt</h2>
+            <p>Draws out fluid and reduces swelling. Use 1 tsp per 5 gallons.</p>
+        </div>
+    </div>
+
+    <div id="ammonia-test-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ammonia-test')">&times;</span>
+            <h2>Ammonia Test Kit</h2>
+            <p>Monitor ammonia levels to prevent eye infections caused by poor water.</p>
+        </div>
+    </div>
+    
+    <div id="nitrate-test-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('nitrate-test')">&times;</span>
+            <h2>Nitrate Test Kit</h2>
+            <p>Keep nitrates low to help the fish recover faster.</p>
+        </div>
+    </div>
+
+    <div id="thermometer-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('thermometer')">&times;</span>
+            <h2>Thermometer</h2>
+            <p>Ensure stable temperature to reduce stress.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pop_eye_medication_page_script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+[
+  {
+    "disease_name": "Fin Rot",
+    "symptoms_text": "fins appear frayed torn ragged or disintegrating rotting fins milky white black or red edges on fins inflammation at the base of the fin loss of fin tissue tail rot වරල් දිරා ගිය පෙනුම වරල් ඉරා ගිහින් වරල් වල සුදු හෝ කළු හෝ රතු දාර වරල් ගැලවී යාම වරල් කෙටි වීම",
+    "medication_page": "/medication/fin-rot"
+  },
+  {
+    "disease_name": "Hole in the Head",
+    "symptoms_text": "hole in the head pits lesions on head lateral line erosion sensory pores enlarged holes white stringy feces hexamita parasite loss of appetite හිසෙහි වලවල් ඇතිවීම හිස මත තුවාල කුහර ඇතිවීම සුදු පැහැති මළපහ පිටවීම කෑම අරුචිය",
+    "medication_page": "/medication/hole-in-the-head"
+  },
+  {
+    "disease_name": "POP eye",
+    "symptoms_text": "pop eye bulging eyes swollen eyes protruding eyes eye infection cloudy eyes fluid accumulation behind eye eye popping out ඇස් එළියට නෙරා ඒම ඇස් ඉදිමීම ඇස් ලොකු වීම ඇස් වල වලාකුළු වැනි ස්වභාවය",
+    "medication_page": "/medication/pop-eye"
+  },
+  {
+    "disease_name": "White Spots (Ich)",
+    "symptoms_text": "white spots salt like specks on skin gills fins fish scratching rubbing against objects flashing clamped fins rapid breathing ichthyophthirius multifiliis ich white dots සුදු තිත් ලුණු කැට වැනි පැල්ලම් ඇඟ ඇතිල්ලීම ගල් වල ඇතිල්ලීම වරල් හැකිලීම වේගයෙන් හුස්ම ගැනීම",
+    "medication_page": "/medication/white-spots"
+  },
+  {
+    "disease_name": "Healthy (No Symptoms Detected)",
+    "symptoms_text": "healthy fish active swimming clear eyes fins are normal no spots bright colors eating well normal behavior happy fish clear skin නිරෝගී මාළුවෙක් හොඳින් පිහිනයි ඇස් පැහැදිලියි වරල් හොඳින් ඇත පැල්ලම් නැත කෑම හොඳින් කයි",
+    "medication_page": null
+  }
+]

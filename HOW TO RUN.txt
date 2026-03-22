@@ -1,0 +1,53 @@
+HOW TO RUN — AQUAMED
+Fish Disease Detection App
+==============================
+
+WHAT YOU NEED FIRST
+• Python installed on your laptop
+• This project folder on your laptop
+
+==============================
+FIRST TIME SETUP (Do this once only)
+==============================
+
+1. Open Command Prompt
+   Press Win + R, type cmd, press Enter
+
+2. Go to the project folder
+   cd D:\AQUAMED_System
+   (change the path to wherever you saved the project)
+
+3. Create a virtual environment
+   python -m venv venv
+
+4. Activate it
+   venv\Scripts\activate
+   (you should see (venv) appear on the left side)
+
+5. Install the required libraries
+   pip install -r requirements.txt
+
+6. Run the app
+   python app.py
+
+7. Open your browser and go to
+   http://127.0.0.1:5000
+
+Done! Upload a fish photo and get the result.
+
+==============================
+NEXT TIME (After first setup)
+==============================
+
+Just do these 3 things:
+
+   cd D:\AQUAMED_System
+   venv\Scripts\activate
+   python app.py
+
+Then open → http://127.0.0.1:5000
+
+==============================
+Made by Nisal Damsika
+github.com/NisalDamsika
+==============================

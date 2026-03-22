@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquamed - Pet Fish Disease Detection</title>
+
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar_style.css') }}">
+
+    <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing_style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <main>
+        <div class="hero">
+            <div class="hero-overlay"></div> <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Welcome to <span class="highlight">Aquamed</span></h1>
+                    <p>Advanced Pet Fish Disease Detection Using Image-Based Machine Learning.</p>
+                    <p class="sub-text">Protect your aquatic friends with AI-powered diagnosis.</p>
+                    
+                    <div class="buttons">
+                        <a href="{{ url_for('upload_page') }}" class="btn btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
+                        <a href="{{ url_for('login_page') }}" class="btn btn-secondary">Log in </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+  <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  min-height: 100vh;
+  padding-top: 80px; 
+}
+
+/* ===========================
+   NAVBAR CSS
+   =========================== */
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 15px 5%; background-color: #0d0d0d;
+  position: fixed; width: 100%; top: 0; z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-img { width: 35px; height: 35px; object-fit: contain; }
+.logo span { font-size: 1.5rem; font-weight: 700; color: #fff; }
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links li a { color: #e0e0e0; text-decoration: none; font-size: 1rem; transition: 0.3s; }
+.nav-links li a:hover { color: #00bcd4; }
+.nav-links .login-link { border: 1px solid #00bcd4; padding: 8px 25px; border-radius: 50px; color: #00bcd4; }
+.nav-links .login-link:hover { background-color: #00bcd4; color: #000; }
+.menu-icon { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+    .menu-icon { display: block; }
+    .nav-links { position: absolute; top: 70px; right: -100%; background: #0d0d0d; flex-direction: column; width: 100%; padding: 20px; transition: 0.4s; border-top: 1px solid #333; }
+    .nav-links.active { right: 0; }
+}
+
+/* ===========================
+   ABOUT PAGE STYLES
+   =========================== */
+.about-section {
+    padding: 50px 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Text */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.sub-title {
+    color: #00bcd4; /* Aqua Color */
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.section-header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.section-header .highlight {
+    color: #00bcd4;
+}
+
+.section-header p {
+    color: #aaa;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+/* Team Grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 0 20px;
+}
+
+/* Team Card */
+.team-card {
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid #333;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    border-color: #00bcd4;
+    box-shadow: 0 10px 30px rgba(0, 188, 212, 0.15);
+}
+
+/* Image */
+.img-box {
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.img-box img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #333;
+    transition: 0.3s;
+}
+
+.team-card:hover .img-box img {
+    border-color: #00bcd4;
+}
+
+/* Text Content */
+.info-box h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.role {
+    color: #00bcd4;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.info-box p {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #888;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    background: rgba(255,255,255,0.05);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: #00bcd4;
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}

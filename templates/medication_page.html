@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aquamed - Medication</title>
+ 
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/medication_style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main class="medication-section">
+    <div class="container">
+        
+        <div class="page-header">
+            <h1>Common Fish <span class="highlight">Diseases</span></h1>
+            <p>Select a disease to view symptoms and treatment plans.</p>
+        </div>
+
+        <div class="disease-grid">
+            
+            <div class="disease-card">
+                <div class="img-box">
+                    <img src="/static/images/finrot_medication.png" alt="Fin Rot">
+                    <div class="overlay">
+                        <a href="{{ url_for('medication_fin_rot') }}" class="view-btn">View Treatment <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Fin Rot</h3>
+                    <p>Bacterial infection causing decaying fins.</p>
+                </div>
+            </div>
+
+            <div class="disease-card">
+                <div class="img-box">
+                    <img src="/static/images/pop_eye_medication.png" alt="Pop Eye">
+                    <div class="overlay">
+                        <a href="{{ url_for('medication_pop_eye') }}" class="view-btn">View Treatment <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Pop Eye</h3>
+                    <p>Swelling of one or both eyes due to fluid buildup.</p>
+                </div>
+            </div>
+
+            <div class="disease-card">
+                <div class="img-box">
+                    <img src="/static/images/hole_in_the_head_medication.png" alt="Hole in the Head">
+                    <div class="overlay">
+                        <a href="{{ url_for('medication_hole_in_head') }}" class="view-btn">View Treatment <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Hole in the Head</h3>
+                    <p>Parasitic disease causing lesions on the head.</p>
+                </div>
+            </div>
+
+            <div class="disease-card">
+                <div class="img-box">
+                    <img src="/static/images/white_spot_medication.png" alt="White Spot">
+                    <div class="overlay">
+                        <a href="{{ url_for('medication_white_spots') }}" class="view-btn">View Treatment <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>White Spot (Ich)</h3>
+                    <p>Parasitic infection appearing as white cysts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+
+</body>
+</html>

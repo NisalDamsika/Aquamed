@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aquamed - Identification Result</title>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/identification_style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main class="result-section">
+    <div class="result-container">
+      
+      <div class="result-card">
+        <!--  IMAGE BOX: Empty, will be filled by JavaScript -->
+        <div class="image-box">
+            <img src="" alt="Analyzed Fish" id="result-image">
+        </div>
+
+        <div class="details-box">
+            <h2 class="title">Diagnosis Report</h2>
+            
+            <!--  CONFIDENCE SCORE: Dynamic -->
+            <div class="status-row">
+                <span class="label">Confidence:</span>
+                <span id="confidence-score" class="status-badge">Calculating...</span>
+            </div>
+
+            <!--  DISEASE INFO: All dynamic content -->
+            <div class="disease-info">
+                <span class="label">Detected Disease:</span>
+                <h1 class="disease-name" id="disease-name">Analyzing...</h1>
+                
+                <p class="description" id="disease-description">
+                    Based on the image analysis, this is the most likely condition identified by our AI system. 
+                    Please review the medication guide for treatment steps.
+                </p>
+            </div>
+
+            <!--  ACTION BUTTONS: Dynamic medication button -->
+            <div class="action-buttons">
+                <!-- This button is controlled by JavaScript -->
+                <button id="medication-btn" class="btn btn-medication" style="display: none;">
+                    View Medication <i class="fas fa-pills"></i>
+                </button>
+                
+                <!--  Fixed link using Flask url_for -->
+                <a href="{{ url_for('upload_page') }}" class="btn btn-retry">
+                    Analyze Another <i class="fas fa-redo"></i>
+                </a>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/identification_script.js') }}"></script>
+</body>
+</html>

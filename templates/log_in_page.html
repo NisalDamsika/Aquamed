@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In - Aquamed</title>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/log_in_style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main class="login-section">
+    <div class="container">
+      <form class="login-box" id="loginForm">
+
+        <div class="form-header">
+            <h2>Welcome Back!</h2>
+            <p class="sub-text">Please enter your details to log in.</p>
+        </div>
+
+        <!-- Username or Email Input -->
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="username" name="username" placeholder="Username or Email" required />
+        </div>
+
+        <!-- Password Input -->
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" name="password" placeholder="Password" required />
+        </div>
+
+        <!-- Remember Me & Forgot Password -->
+        <div class="options">
+          <label class="checkbox-container">
+            <input type="checkbox" id="rememberMe" />
+            <span class="checkmark"></span>
+            Remember me
+          </label>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <!-- Login Button -->
+        <button type="submit" class="login-btn">
+          <i class="fas fa-sign-in-alt"></i> Log In
+        </button>
+
+        <!-- Sign Up Link -->
+        <p class="footer-text">
+          Don't have an account? <a href="{{ url_for('signup_page') }}">Sign up</a>
+        </p>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- Navbar Script -->
+  <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+
+  <!-- Login Handler Script -->
+  <script>
+    const API_URL = 'http://127.0.0.1:5000';
+
+    // Handle login form submission
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        const rememberMe = document.getElementById('rememberMe').checked;
+        
+        // Validation
+        if (!username || !password) {
+            alert(' Please enter both username and password!');
+            return;
+        }
+        
+        // Show loading state
+        const loginBtn = document.querySelector('.login-btn');
+        const originalText = loginBtn.innerHTML;
+        loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+        loginBtn.disabled = true;
+        
+        try {
+            console.log(' Attempting login for:', username);
+            
+            const response = await fetch(`${API_URL}/api/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include', // Important for cookies/sessions
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            });
+
+            const data = await response.json();
+            console.log('📡 Login response:', data);
+
+            if (response.ok && data.status === 200) {
+                //  Login successful
+                console.log(' Login successful!');
+                
+                // Store user data in localStorage
+                localStorage.setItem('username', data.username);
+                localStorage.setItem('user_id', data.user_id);
+                localStorage.setItem('isLoggedIn', 'true');
+                
+                if (data.email) {
+                    localStorage.setItem('email', data.email);
+                }
+                
+                if (rememberMe) {
+                    localStorage.setItem('rememberMe', 'true');
+                }
+                
+                // Show success message
+                alert(' Welcome back, ' + data.username + '!');
+                
+                // Redirect to home page
+                window.location.href = '/';
+                
+            } else {
+                //  Login failed
+                console.error(' Login error:', data);
+                alert('❌ ' + (data.error || 'Login failed. Please check your credentials.'));
+                
+                // Reset button
+                loginBtn.innerHTML = originalText;
+                loginBtn.disabled = false;
+            }
+
+        } catch (error) {
+            console.error(' Network error:', error);
+            alert(' Connection failed! Please make sure the server is running.\n\nRun: python app.py');
+            
+            // Reset button
+            loginBtn.innerHTML = originalText;
+            loginBtn.disabled = false;
+        }
+    });
+
+    // Check if user is already logged in
+    window.addEventListener('DOMContentLoaded', () => {
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        
+        if (isLoggedIn) {
+            console.log(' User already logged in, redirecting...');
+            // Uncomment to auto-redirect logged-in users
+            // window.location.href = '/';
+        }
+    });
+  </script>
+
+</body>
+</html>

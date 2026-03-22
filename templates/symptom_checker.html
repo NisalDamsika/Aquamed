@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Checker - Aquamed</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/symptom_checker.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="symptom-checker-section">
+        <div class="container">
+            
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="header-icon">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <h1>Symptom <span class="highlight">Checker</span></h1>
+                <p class="subtitle">Describe your fish's symptoms and get instant diagnosis recommendations</p>
+            </div>
+
+            <!-- Info Banner -->
+            <div class="info-banner">
+                <i class="fas fa-info-circle"></i>
+                <div class="info-text">
+                    <strong>How it works:</strong> Describe what you observe about your fish. The more details you provide, the more accurate the diagnosis. You can type in English or Sinhala (සිංහල).
+                </div>
+            </div>
+
+            <!-- Symptom Input Form -->
+            <div class="symptom-form-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-edit"></i> Describe Your Fish's Symptoms</h2>
+                </div>
+                
+                <div class="card-body">
+                    <form id="symptomForm" onsubmit="analyzeSymptoms(event)">
+                        
+                        <!-- Symptom Text Area -->
+                        <div class="form-group">
+                            <label for="symptomsText">
+                                <i class="fas fa-comment-medical"></i> Symptom Description
+                            </label>
+                            <textarea 
+                                id="symptomsText" 
+                                name="symptoms"
+                                placeholder="Example: My fish has white spots all over its body and keeps scratching against rocks. Its fins look clamped and it's breathing fast..."
+                                rows="6"
+                                required
+                            ></textarea>
+                            <div class="char-count">
+                                <span id="charCount">0</span> characters
+                            </div>
+                        </div>
+
+                        <!-- Quick Symptom Chips -->
+                        <div class="quick-symptoms">
+                            <label class="quick-label">
+                                <i class="fas fa-bolt"></i> Quick Add (Click to add common symptoms):
+                            </label>
+                            <div class="symptom-chips">
+                                <button type="button" class="symptom-chip" onclick="addSymptom('white spots on body')">
+                                    White Spots
+                                </button>
+                                <button type="button" class="symptom-chip" onclick="addSymptom('fins are torn and ragged')">
+                                    Torn Fins
+                                </button>
+                                <button type="button" class="symptom-chip" onclick="addSymptom('eyes are bulging')">
+                                    Bulging Eyes
+                                </button>
+                                <button type="button" class="symptom-chip" onclick="addSymptom('scratching against objects')">
+                                    Scratching
+                                </button>
+                                <button type="button" class="symptom-chip" onclick="addSymptom('holes on head')">
+                                    Holes on Head
+                                </button>
+                                <button type="button" class="symptom-chip" onclick="addSymptom('loss of appetite')">
+                                    No Appetite
+                                </button>
+                                <button type="button" class="symptom-chip" onclick="addSymptom('rapid breathing')">
+                                    Fast Breathing
+                                </button>
+                                <button type="button" class="symptom-chip" onclick="addSymptom('cloudy eyes')">
+                                    Cloudy Eyes
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Submit Buttons -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn-analyze" id="analyzeBtn">
+                                <i class="fas fa-search"></i> Analyze Symptoms
+                            </button>
+                            <button type="button" class="btn-clear" onclick="clearForm()">
+                                <i class="fas fa-eraser"></i> Clear
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <!-- Results Section (Hidden by default) -->
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h2><i class="fas fa-clipboard-check"></i> Diagnosis Results</h2>
+                </div>
+
+                <!-- Main Result Card -->
+                <div class="result-card primary-result">
+                    <div class="result-icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-label">Most Likely Diagnosis</div>
+                        <h3 id="resultDisease">Loading...</h3>
+                        <div class="confidence-bar">
+                            <div class="confidence-label">Match Confidence</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="confidenceBar" style="width: 0%"></div>
+                            </div>
+                            <div class="confidence-value" id="confidenceValue">0%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="result-actions">
+                    <a href="#" id="viewTreatmentBtn" class="btn-treatment" style="display: none;">
+                        <i class="fas fa-pills"></i> View Treatment Plan
+                    </a>
+                    <button class="btn-new-check" onclick="startNewCheck()">
+                        <i class="fas fa-redo"></i> New Symptom Check
+                    </button>
+                </div>
+
+                <!-- Alternative Diagnoses -->
+                <div class="alternative-results" id="alternativeResults" style="display: none;">
+                    <h4><i class="fas fa-list"></i> Other Possible Conditions</h4>
+                    <div class="alternative-list" id="alternativeList"></div>
+                </div>
+            </div>
+
+            <!-- Example Section -->
+            <div class="examples-section">
+                <h3><i class="fas fa-lightbulb"></i> Example Descriptions</h3>
+                <div class="examples-grid">
+                    <div class="example-card" onclick="useExample(this)">
+                        <div class="example-header">
+                            <i class="fas fa-fish"></i>
+                            <strong>White Spots (Ich)</strong>
+                        </div>
+                        <p>"My goldfish has tiny white dots all over its body like salt grains. It keeps scratching against the decorations and its fins look clamped. It's also breathing very fast."</p>
+                    </div>
+                    
+                    <div class="example-card" onclick="useExample(this)">
+                        <div class="example-header">
+                            <i class="fas fa-fish"></i>
+                            <strong>Fin Rot</strong>
+                        </div>
+                        <p>"The fins of my betta are looking torn and ragged with white edges. They seem to be getting shorter and there's some redness at the base."</p>
+                    </div>
+                    
+                    <div class="example-card" onclick="useExample(this)">
+                        <div class="example-header">
+                            <i class="fas fa-fish"></i>
+                            <strong>Pop Eye</strong>
+                        </div>
+                        <p>"One of my fish's eyes is swollen and bulging out. It looks cloudy and there seems to be fluid behind the eye."</p>
+                    </div>
+                    
+                    <div class="example-card" onclick="useExample(this)">
+                        <div class="example-header">
+                            <i class="fas fa-fish"></i>
+                            <strong>Hole in the Head</strong>
+                        </div>
+                        <p>"My discus has small holes appearing on its head and along the lateral line. It's not eating well and has white stringy poop."</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/symptom_checker_script.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aquamed - Fish Disease Detection</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/upload_style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<main class="upload-section">
+  <div class="upload-box">
+
+    <!-- Header -->
+    <h2>Fish Disease Detection</h2>
+    <p class="subtitle">Choose your preferred method for disease detection</p>
+
+    <!-- MODE TOGGLE -->
+    <div class="mode-toggle">
+          <!-- Upload Image -->
+      <a href="{{ url_for('upload_page') }}" class="toggle-btn active">
+        <i class="fas fa-image"></i> Upload Image
+      </a>
+
+      <!-- Describe Symptoms -->
+      <a href="{{ url_for('symptom_checker_page') }}" class="toggle-btn">
+        <i class="fas fa-notes-medical"></i> Describe Symptoms
+  </a>
+    </div>
+
+    <!-- ================= IMAGE MODE ================= -->
+    <div id="image-mode" class="mode-container active">
+
+      <label for="fileElem" class="drop-area">
+        <input 
+          type="file"
+          id="fileElem"
+          accept=".jpg,.jpeg,.png"
+          onchange="handleFiles(this.files)">
+
+        <div id="upload-placeholder">
+          <i class="fas fa-cloud-upload-alt upload-icon"></i>
+          <p>Click or drag image to upload</p>
+        </div>
+
+        <img id="preview" alt="Image Preview">
+      </label>
+
+      <div class="info-tag">
+        <i class="fas fa-stethoscope"></i>
+        <span>Detects: White Spot, Fin Rot, Pop Eye, Hole in the Head</span>
+      </div>
+
+      <div class="buttons" id="action-buttons" style="display:none;">
+        <button class="btn-cancel" onclick="removeFile()">
+          <i class="fas fa-trash"></i> Cancel
+        </button>
+        <button class="btn-continue" onclick="uploadImage()">
+          Continue <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= TEXT MODE ================= -->
+    <div id="text-mode" class="mode-container">
+
+      <div class="text-input-area">
+
+        <div class="input-group">
+          <label for="symptoms-input">
+            <i class="fas fa-notes-medical"></i>
+            Describe observed symptoms
+          </label>
+          <textarea
+            id="symptoms-input"
+            rows="6"
+            maxlength="500"
+            placeholder="Example: White spots on body, torn fins, bulging eyes..."></textarea>
+          <div class="char-counter">
+            <span id="char-count">0</span> / 500
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="fish-type">
+            <i class="fas fa-fish"></i> Fish Type (Optional)
+          </label>
+          <input 
+            type="text"
+            id="fish-type"
+            placeholder="Goldfish, Betta, Guppy">
+        </div>
+
+        <div class="input-group">
+          <label for="tank-conditions">
+            <i class="fas fa-water"></i> Tank Conditions (Optional)
+          </label>
+          <input 
+            type="text"
+            id="tank-conditions"
+            placeholder="Temperature, pH, tank size">
+        </div>
+      </div>
+
+      <div class="info-tag">
+        <i class="fas fa-lightbulb"></i>
+        <span>More details = better diagnosis</span>
+      </div>
+
+      <div class="buttons">
+        <button class="btn-cancel" onclick="clearTextInputs()">
+          <i class="fas fa-eraser"></i> Clear
+        </button>
+        <button class="btn-continue" onclick="analyzeSymptoms()">
+          Analyze <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/upload_page_script.js') }}"></script>
+
+</body>
+</html>

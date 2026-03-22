@@ -1,0 +1,217 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: white;
+  min-height: 100vh;
+  padding-top: 80px; 
+}
+
+/* NAVBAR CSS  */
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 15px 5%; background-color: #0d0d0d;
+  position: fixed; width: 100%; top: 0; z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-img { width: 35px; height: 35px; object-fit: contain; }
+.logo span { font-size: 1.5rem; font-weight: 700; color: #fff; }
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links li a { color: #e0e0e0; text-decoration: none; font-size: 1rem; transition: 0.3s; }
+.nav-links li a:hover { color: #00bcd4; }
+.nav-links .login-link { border: 1px solid #00bcd4; padding: 8px 25px; border-radius: 50px; color: #00bcd4; }
+.nav-links .login-link:hover { background-color: #00bcd4; color: #000; }
+.menu-icon { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+    .menu-icon { display: block; }
+    .nav-links { position: absolute; top: 70px; right: -100%; background: #0d0d0d; flex-direction: column; width: 100%; padding: 20px; transition: 0.4s; border-top: 1px solid #333; }
+    .nav-links.active { right: 0; }
+}
+
+/* LOGIN PAGE STYLES*/
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-box {
+    background-color: #1a1a1a;
+    padding: 40px 30px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.sub-text {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Input Fields */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    transition: 0.3s;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #333;
+    border-radius: 50px;
+    background-color: #0f0f0f;
+    color: white;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.login-box input:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.1);
+}
+
+.login-box input:focus + i {
+    color: #00bcd4;
+}
+
+/* Options Row */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+    color: #ccc;
+}
+/*HECKBOX FIX */
+
+.options .checkbox-container {
+    display: flex;
+    align-items: center; 
+    gap: 8px; 
+    cursor: pointer;
+}
+
+.options .checkbox-container input[type="checkbox"] {
+    width: auto; 
+    margin: 0; 
+    cursor: pointer;
+    height: 16px; 
+    width: 16px; 
+    accent-color: #00bcd4; 
+}
+
+.forgot-link {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #00bcd4;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #008ba3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+}
+
+/* Divider */
+.divider {
+    position: relative;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.divider::before {
+    content: '';
+    position: absolute; top: 50%; left: 0; width: 100%; height: 1px;
+    background-color: #333; z-index: 0;
+}
+
+.divider span {
+    background-color: #1a1a1a; padding: 0 10px; color: #666; font-size: 0.85rem;
+    position: relative; z-index: 1;
+}
+
+/* Google Button */
+.google-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; padding: 12px; border: 1px solid #333; border-radius: 50px;
+    background-color: transparent; color: #ccc; cursor: pointer; transition: 0.3s;
+}
+
+.google-btn:hover {
+    background-color: #333; color: #fff; border-color: #fff;
+}
+
+.google-icon { width: 20px; height: 20px; }
+
+/* Footer */
+.footer-text {
+    text-align: center; margin-top: 20px; font-size: 0.9rem; color: #aaa;
+}
+
+.footer-text a {
+    color: #00bcd4; text-decoration: none; font-weight: 600;
+}
+
+.footer-text a:hover {
+    text-decoration: underline;
+}

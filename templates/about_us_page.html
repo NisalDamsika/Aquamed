@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Aquamed</title>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/about_us_style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <main class="about-section">
+    <div class="container">
+        
+        <div class="section-header">
+            <h4 class="sub-title">Who We Are</h4>
+            <h1>Meet Our <span class="highlight">Team</span></h1>
+            <p>The dedicated minds behind Aquamed, working together to revolutionize fish care with AI.</p>
+        </div>
+
+        <div class="team-grid">
+            
+            <div class="team-card">
+                <div class="img-box">
+                    <img src="/static/images/member1.jpg" alt="Deshan Hansaja">
+                </div>
+                <div class="info-box">
+                    <h2>Deshan Hansaja</h2>
+                    <h4 class="role">Backend & Data Systems</h4>
+                    <p>Developed Flask backend APIs, designed SQLite database structures, implemented text-based symptom checker, verified medication guidelines, and managed data collection from aquariums and social platforms sources securely.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="img-box">
+                    <img src="/static/images/member2.jpg" alt="Nisal Damsika">
+                </div>
+                <div class="info-box">
+                    <h2>Nisal Damsika</h2>
+                    <h4 class="role">AI Model Engineering & Integration</h4>
+                    <p>Handled model training, optimization workflows, image background removal, data augmentation processes, CNN model testing, and API integration connecting frontend and backend components effectively within system architecture.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/nisald01/"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="nisaldamsika2001@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="img-box">
+                    <img src="/static/images/member3.jpg" alt="Nipun Nirmal">
+                </div>
+                <div class="info-box">
+                    <h2>Nipun Nirmal</h2>
+                    <h4 class="role">UI/UX & Frontend Development</h4>
+                    <p>Responsible for UI/UX design and frontend development using HTML and CSS, implementing dark mode, responsive layouts, and creating user-friendly interfaces across system pages with consistent usability.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+  
+  </body>
+</html>

@@ -1,0 +1,17 @@
+# Python virtual environment
+venv/
+
+# Training dataset (too large - 1.89GB)
+Data/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Database (runtime generated)
+aquamed_data.db

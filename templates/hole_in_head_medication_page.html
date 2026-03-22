@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hole in the Head Treatment - Aquamed</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hole_in_head_medication_page_style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <script src="W:\fyp_folder\finalise UI\navigation bar/navbar.js"></script>
+
+    <main class="treatment-page">
+        <div class="container">
+            
+            <div class="page-header">
+                <h1>Hole in the Head <span class="highlight">Treatment</span></h1>
+                <p>Guide to curing Hexamita and nutritional deficiencies.</p>
+            </div>
+
+            
+
+            <div class="accordion-container">
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>1. Identify Symptoms</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Caused by Hexamita parasites or vitamin deficiency.</p>
+                        <ul class="detail-list">
+                            <li><i class="fas fa-dot-circle"></i> Pits or holes on the head/lateral line.</li>
+                            <li><i class="fas fa-check-circle"></i> Stringy white feces.</li>
+                            <li><i class="fas fa-check-circle"></i> Loss of appetite and weight loss.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>2. Quarantine & Isolate</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Isolate the fish in a hospital tank to prevent spreading parasites and to monitor eating habits closely.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>3. Improve Water Quality</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Remove activated carbon (it absorbs meds). Ensure 0 Ammonia/Nitrite.</p>
+                        
+                        <div class="product-grid">
+                            <div class="product-card" onclick="openModal('ammonia-test')">
+                                <img src="/static/images/ammonia test kit.jpg" alt="Ammonia Kit">
+                                <h4>Ammonia Test Kit</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('nitrate-test')">
+                                <img src="/static/images/nitrite test kit.jpg" alt="Nitrate Kit">
+                                <h4>Nitrate Test Kit</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>4. Medication (Metronidazole)</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p><strong>Seachem MetroPlex</strong> is the best treatment. Mix with food using <strong>Focus</strong> for internal treatment.</p>
+                        
+                        <div class="product-grid">
+                            <div class="product-card" onclick="openModal('metroplex')">
+                                <img src="/static/images/Metroplex.jpg" alt="MetroPlex">
+                                <h4>Seachem MetroPlex</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('focus')">
+                                <img src="/static/images/Focus.jpg" alt="Focus">
+                                <h4>Seachem Focus</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>5. Diet & Prevention</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Feed Vitamin C & D rich foods. Soak food in garlic guard to boost appetite and immunity.</p>
+                        <ul class="detail-list">
+                            <li><i class="fas fa-star"></i> High-quality pellets.</li>
+                            <li><i class="fas fa-star"></i> Vitamin supplements.</li>
+                            <li><i class="fas fa-star"></i> Regular water changes.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="metroplex-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('metroplex')">&times;</span>
+            <h2>Seachem MetroPlex</h2>
+            <p>Contains Metronidazole. Highly effective against Hexamita parasites and anaerobic bacteria.</p>
+        </div>
+    </div>
+
+    <div id="focus-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('focus')">&times;</span>
+            <h2>Seachem Focus</h2>
+            <p>Binds medication to food, allowing you to treat the fish internally (where the parasites live).</p>
+        </div>
+    </div>
+
+    <div id="ammonia-test-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ammonia-test')">&times;</span>
+            <h2>Ammonia Test Kit</h2>
+            <p>Essential to ensure water quality is perfect, as poor water is a leading cause of this disease.</p>
+        </div>
+    </div>
+    
+    <div id="nitrate-test-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('nitrate-test')">&times;</span>
+            <h2>Nitrate Test Kit</h2>
+            <p>Keep nitrates low (< 20ppm) to help the fish recover faster.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/hole_in_head_medication_page_script.js') }}"></script>
+
+</body>
+</html>

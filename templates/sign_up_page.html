@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Aquamed</title>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/log_in_style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main class="login-section">
+    <div class="container">
+      <form class="login-box" id="signupForm">
+
+        <div class="form-header">
+            <h2>Create Account</h2>
+            <p class="sub-text">Join Aquamed to start diagnosing fish diseases</p>
+        </div>
+
+        <!-- Username Input -->
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="username" name="username" placeholder="Username" required />
+        </div>
+
+        <!-- Email Input (Optional) -->
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" name="email" placeholder="Email (Optional)" />
+        </div>
+
+        <!-- Password Input -->
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" name="password" placeholder="Password (min 6 characters)" required />
+        </div>
+
+        <!-- Confirm Password Input -->
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required />
+        </div>
+
+        <!-- Password Strength Indicator (Optional) -->
+        <div id="password-strength" style="display: none; margin-top: -10px; margin-bottom: 15px;">
+            <small id="strength-text"></small>
+        </div>
+
+        <!-- Terms & Conditions -->
+        <div class="options" style="justify-content: flex-start;">
+          <label class="checkbox-container">
+            <input type="checkbox" id="agreeTerms" required />
+            <span class="checkmark"></span>
+            I agree to the <a href="#" style="color: #00bcd4;">Terms & Conditions</a>
+          </label>
+        </div>
+
+        <!-- Sign Up Button -->
+        <button type="submit" class="login-btn">
+          <i class="fas fa-user-plus"></i> Sign Up
+        </button>
+
+        <!-- Login Link -->
+        <p class="footer-text">
+          Already have an account? <a href="{{ url_for('login_page') }}">Log in</a>
+        </p>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- Navbar Script -->
+  <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+
+  <!-- Signup Handler Script -->
+  <script>
+    const API_URL = 'http://127.0.0.1:5000';
+
+    // Password strength indicator
+    const passwordInput = document.getElementById('password');
+    const strengthDiv = document.getElementById('password-strength');
+    const strengthText = document.getElementById('strength-text');
+
+    passwordInput.addEventListener('input', () => {
+        const password = passwordInput.value;
+        
+        if (password.length === 0) {
+            strengthDiv.style.display = 'none';
+            return;
+        }
+
+        strengthDiv.style.display = 'block';
+        
+        let strength = 0;
+        if (password.length >= 6) strength++;
+        if (password.length >= 8) strength++;
+        if (/[a-z]/.test(password)) strength++;
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[0-9]/.test(password)) strength++;
+        if (/[^a-zA-Z0-9]/.test(password)) strength++;
+
+        if (password.length < 6) {
+            strengthText.textContent = ' Too short (min 6 characters)';
+            strengthText.style.color = '#ff4757';
+        } else if (strength <= 3) {
+            strengthText.textContent = ' Weak password';
+            strengthText.style.color = '#ff6348';
+        } else if (strength <= 5) {
+            strengthText.textContent = ' Medium strength';
+            strengthText.style.color = '#ffa502';
+        } else {
+            strengthText.textContent = ' Strong password';
+            strengthText.style.color = '#00bcd4';
+        }
+    });
+
+    // Handle signup form submission
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const agreeTerms = document.getElementById('agreeTerms').checked;
+        
+        // Validation
+        if (!username || !password || !confirmPassword) {
+            alert(' Please fill in all required fields!');
+            return;
+        }
+
+        if (!agreeTerms) {
+            alert(' You must agree to the Terms & Conditions!');
+            return;
+        }
+
+        if (username.length < 3 || username.length > 50) {
+            alert(' Username must be between 3 and 50 characters!');
+            return;
+        }
+
+        if (password.length < 6) {
+            alert(' Password must be at least 6 characters long!');
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert(' Passwords do not match!');
+            return;
+        }
+        
+        // Show loading state
+        const signupBtn = document.querySelector('.login-btn');
+        const originalText = signupBtn.innerHTML;
+        signupBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating account...';
+        signupBtn.disabled = true;
+        
+        try {
+            console.log(' Attempting to register user:', username);
+            
+            const response = await fetch(`${API_URL}/api/register`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: username,
+                    email: email || null,
+                    password: password
+                })
+            });
+
+            const data = await response.json();
+            console.log(' Register response:', data);
+
+            if (response.ok && data.status === 201) {
+                //  Registration successful
+                console.log(' User registered:', data.username);
+                
+                alert(' Registration successful! Please log in with your credentials.');
+                
+                // Redirect to login page
+                window.location.href = '/login';
+                
+            } else {
+                // Registration failed
+                console.error('❌ Registration error:', data);
+                alert('❌ ' + (data.error || 'Registration failed. Please try again.'));
+                
+                // Reset button
+                signupBtn.innerHTML = originalText;
+                signupBtn.disabled = false;
+            }
+
+        } catch (error) {
+            console.error('❌ Network error:', error);
+            alert('❌ Connection failed! Please make sure the server is running.\n\nRun: python app.py');
+            
+            // Reset button
+            signupBtn.innerHTML = originalText;
+            signupBtn.disabled = false;
+        }
+    });
+  </script>
+
+</body>
+</html>

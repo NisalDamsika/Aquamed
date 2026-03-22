@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fin Rot Treatment </title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fin_rot_medication_page_style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="treatment-page">
+        <div class="container">
+            
+            <div class="page-header">
+                <h1>Fin Rot <span class="highlight">Treatment</span></h1>
+                <p>Comprehensive guide to identifying and curing Fin Rot.</p>
+            </div>
+
+            <div class="accordion-container">
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>1. Identify Symptoms</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Fin rot is a bacterial or fungal infection often triggered by stress or poor water quality.</p>
+                        <ul class="detail-list">
+                            <li><i class="fas fa-check-circle"></i> Frayed or ragged fins (torn edges).</li>
+                            <li><i class="fas fa-check-circle"></i> Discoloration (white, black, or red edges).</li>
+                            <li><i class="fas fa-check-circle"></i> Inflammation at the fin base.</li>
+                            <li><i class="fas fa-check-circle"></i> Less active behavior or hiding.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>2. Isolate Infected Fish</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Move the fish to a <strong>quarantine tank</strong> to prevent spreading the disease. Use a sponge filter and heater.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>3. Check Water Quality</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Ensure Ammonia and Nitrite are 0 ppm. Keep Nitrate low (< 40 ppm). Perform daily water changes.</p>
+                        
+                        <div class="product-grid">
+                            <div class="product-card" onclick="openModal('ammonia-test')">
+                                <img src="/static/images/ammonia-test-kit.jpg" alt="Ammonia Kit">
+                                <h4>Ammonia Test Kit</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('nitrate-test')">
+                                <img src="/static/images//Nitrate Test kit.jfif" alt="Nitrate Kit">
+                                <h4>Nitrate Test Kit</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('ph-test')">
+                                <img src="/static/images/Ph test kit.jfif" alt="pH Kit">
+                                <h4>pH Test Kit</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>4. Medication & Treatment</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="sub-section">
+                            <h5>Mild Cases</h5>
+                            <p>Use Aquarium Salt or mild remedies like Melafix.</p>
+                        </div>
+                        <div class="sub-section">
+                            <h5>Severe Cases</h5>
+                            <p>Use antibiotics like Maracyn, Furan-2, or Kanamycin.</p>
+                        </div>
+
+                        <div class="product-grid">
+                            <div class="product-card" onclick="openModal('maracyn')">
+                                <img src="/static/images/Maracyn fin rot.jfif" alt="Maracyn">
+                                <h4>Fritz Maracyn</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('furan-2')">
+                                <img src="/static/images/API Furan-2  fin rot.jfif" alt="Furan-2">
+                                <h4>API Furan-2</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('kanamycin')">
+                                <img src="/static/images/AquaLife Kanamycin Sulfate.jpg" alt="Kanamycin">
+                                <h4>Kanamycin</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('bettafix')">
+                                <img src="/static/images/Bettafix.jfif" alt="Bettafix">
+                                <h4>API Bettafix</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>5. Monitor & Prevention</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="detail-list">
+                            <li><i class="fas fa-star"></i> Finish the full course of medication.</li>
+                            <li><i class="fas fa-star"></i> Feed vitamin-rich food.</li>
+                            <li><i class="fas fa-star"></i> Keep the tank clean and avoid overcrowding.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="maracyn-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('maracyn')">&times;</span>
+            <h2>Fritz Maracyn</h2>
+            <p>Contains Erythromycin. Targets gram-positive bacteria. Ideal for moderate to severe fin rot.</p>
+        </div>
+    </div>
+
+    <div id="furan-2-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('furan-2')">&times;</span>
+            <h2>API Furan-2</h2>
+            <p>Effective against both gram-positive and gram-negative bacteria. Good for advanced infections.</p>
+        </div>
+    </div>
+    
+    <div id="kanamycin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('kanamycin')">&times;</span>
+            <h2>Kanamycin</h2>
+            <p>Broad-spectrum antibiotic. Absorbed through the skin, making it very effective.</p>
+        </div>
+    </div>
+
+    <div id="bettafix-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bettafix')">&times;</span>
+            <h2>API Bettafix</h2>
+            <p>Natural tea-tree oil formula. Best for early stages or repairing damaged fins.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/fin_rot_medication_page_script.js') }}"></script>    
+
+</body>
+</html>

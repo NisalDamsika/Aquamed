@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Spot Treatment - Aquamed</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/white_spot_style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <script src="W:\fyp_folder\finalise UI\navigation bar/navbar.js"></script>
+
+    <main class="treatment-page">
+        <div class="container">
+            
+            <div class="page-header">
+                <h1>White Spot <span class="highlight">(Ich)</span> Treatment</h1>
+                <p>Comprehensive guide to identifying and curing White Spot disease.</p>
+            </div>
+
+            
+
+            <div class="accordion-container">
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>1. Identify Symptoms</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>White Spot (Ich) causes small white cysts on the body, fins, and gills.</p>
+                        <ul class="detail-list">
+                            <li><i class="fas fa-dot-circle"></i> White spots looking like salt grains.</li>
+                            <li><i class="fas fa-check-circle"></i> Rubbing against objects (Flashing).</li>
+                            <li><i class="fas fa-check-circle"></i> Clamped fins or gasping at surface.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>2. Quarantine & Isolate</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Move the infected fish to a hospital tank. This prevents the parasite from spreading to other fish/substrate.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>3. Raise Temperature</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Slowly raise temp to <strong>28–30°C (82–86°F)</strong> for 10–14 days. This speeds up the parasite's life cycle.</p>
+                        
+                        <div class="product-grid">
+                            <div class="product-card" onclick="openModal('heater')">
+                                <img src="/static/images/heater.webp" alt="Heater">
+                                <h4>Aquarium Heater</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('thermometer')">
+                                <img src="/static/images/temp test.jpg" alt="Thermometer">
+                                <h4>Digital Thermometer</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>4. Medication Treatment</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Use Malachite Green or Copper-based meds. Remove active carbon from filter before treating.</p>
+                        
+                        <div class="product-grid">
+                            <div class="product-card" onclick="openModal('ich-x')">
+                                <img src="/static/images/Formalin + Malachite Green combo.jpg" alt="Ich-X">
+                                <h4>Ich-X</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('cupramine')">
+                                <img src="/static/images/Cupramine.jfif" alt="Cupramine">
+                                <h4>Seachem Cupramine</h4>
+                            </div>
+                            <div class="product-card" onclick="openModal('methylene-blue')">
+                                <img src="/static/images/Methalin-Blue.webp" alt="Methylene Blue">
+                                <h4>Methylene Blue</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>5. Water Maintenance</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="detail-list">
+                            <li><i class="fas fa-tint"></i> Do daily 25% water changes.</li>
+                            <li><i class="fas fa-broom"></i> Vacuum gravel thoroughly (parasites fall to bottom).</li>
+                            <li><i class="fas fa-vial"></i> Monitor Ammonia and Nitrate levels.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="ich-x-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ich-x')">&times;</span>
+            <h2>Ich-X</h2>
+            <p>Formalin + Malachite Green combo. Highly effective and safer for some plants compared to harsh copper.</p>
+        </div>
+    </div>
+
+    <div id="cupramine-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cupramine')">&times;</span>
+            <h2>Seachem Cupramine</h2>
+            <p>Copper-based treatment. Very effective but toxic to snails and shrimp. Use only in fish-only tanks.</p>
+        </div>
+    </div>
+
+    <div id="heater-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('heater')">&times;</span>
+            <h2>Aquarium Heater</h2>
+            <p>Required to raise temperature to speed up the Ich life cycle so medication can kill it faster.</p>
+        </div>
+    </div>
+    
+    <div id="methylene-blue-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('methylene-blue')">&times;</span>
+            <h2>Methylene Blue</h2>
+            <p>Mild treatment suitable for sensitive fish or as a secondary bath. Also helps with oxygen intake.</p>
+        </div>
+    </div>
+    
+    <div id="thermometer-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('thermometer')">&times;</span>
+            <h2>Thermometer</h2>
+            <p>Essential to monitor the temperature increase precisely and avoid overheating your fish.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/navbar_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/white_spot_script.js') }}"></script>
+</body>
+</html>
