@@ -15,3 +15,6 @@ Thumbs.db
 
 # Database (runtime generated)
 aquamed_data.db
+
+# User uploaded prediction images (runtime generated)
+collected_images/
