@@ -12,7 +12,6 @@
 
 **An AI-powered web application that detects pet fish diseases from images using MobileNetV2 — a lightweight CNN model trained on a custom-collected dataset from Sri Lankan aquarium shops and social media.**
 
-*Built by InfoHunters — Group No. 35*
 
 </div>
 
@@ -235,7 +234,7 @@ test_data/
 
 ---
 
-## 👥 Team — InfoHunters | Group No. 35
+## 👥 Team 
 
 | Name | Role | GitHub |
 |---|---|---|
